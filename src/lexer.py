@@ -1,3 +1,5 @@
+from values import *
+
 DIGITS = '0123456789'
 CFS = '{[(' # Control Flow Start
 CFE = ')]}' # Control Flow End
@@ -31,8 +33,10 @@ class Lexer_:
             elif self.current_char in CF:
                 tokens.append(Tokens("Keyword", self.current_char))
                 self.advance()
+            elif self.current_char in Helpers:
+                tokens.append(Tokens("Helper", self.current_char))
             else:
-                tokens.append(Tokens("Function", self.current_char))
+                tokens.append(Tokens("FuncOP", self.current_char))
                 self.advance()
         return tokens
     def read_number(self):
