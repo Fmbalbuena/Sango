@@ -15,6 +15,7 @@ class Parser:
         self.tokens_to_parse = tokens_to_parse
         self.token_memory = []
         self.current_token_type = None
+        self.advance()
         """
         self.start_brackets = []
         self.stack_with_brackets = []
